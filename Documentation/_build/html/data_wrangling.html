@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Approach to solve the problem &mdash; The neighborhoods of Toronto, Ontario 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction and business problem description" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> The neighborhoods of Toronto, Ontario
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction and business problem description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Approach to solve the problem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#collecting-the-data">1. Collecting the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-an-insight-on-the-data-and-process-them">2. Get an insight on the data and process them</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-k-means-clustering-to-cluster-the-data">3. Use k-Means clustering to cluster the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizing-the-results">4. Visualizing the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">5. Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">The neighborhoods of Toronto, Ontario</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Approach to solve the problem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data_wrangling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="approach-to-solve-the-problem">
+<h1>Approach to solve the problem<a class="headerlink" href="#approach-to-solve-the-problem" title="Permalink to this headline">¶</a></h1>
+<p>As I pinpointed in the Introduction, i want to solve this problem by following these steps:</p>
+<ol class="arabic simple">
+<li><p>Collect the data</p></li>
+<li><p>Get an insight on the data and process them</p></li>
+<li><p>Use k-Means clustering to cluster the data</p></li>
+<li><p>Visualizing the results</p></li>
+</ol>
+<hr class="docutils" />
+<section id="collecting-the-data">
+<h2>1. Collecting the data<a class="headerlink" href="#collecting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The most important part of every data science project is to get good data.
+To fullfill this requirement, I chose the following data sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M">List of neighborhoods in Toronto</a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/e53f8e7719f5365c6e4608e58e93973d/Geospatial_Coordinates.csv"><code class="xref download docutils literal notranslate"><span class="pre">Geospatial</span> <span class="pre">data</span></code></a> (Latitude, Longitude) of every postal code in Toronto</p></li>
+<li><p>Venue data of every neighborhood</p></li>
+<li><p>Venue categories</p></li>
+</ul>
+<p>In order to get this data I used the Python Package <em>BeautifulSoup</em> to scrape
+the data from the webpages. The venue data is provided by the <a class="reference external" href="https://foursquare.com/">Foursquare</a>
+API. I decided to use the API by using the Python Package <em>requests</em> and search for categories of venues.
+Therefore, I used this <a class="reference external" href="https://developer.foursquare.com/docs/build-with-foursquare/categories/">list of categories</a> to
+create the API-requests.</p>
+</section>
+<section id="get-an-insight-on-the-data-and-process-them">
+<h2>2. Get an insight on the data and process them<a class="headerlink" href="#get-an-insight-on-the-data-and-process-them" title="Permalink to this headline">¶</a></h2>
+<p>I gained an insight on the data by visualizing them on a geospatial map (<a class="reference download internal" download="" href="_downloads/c84a09d90c106d7149f79132bdacfb24/boroughs.html"><code class="xref download docutils literal notranslate"><span class="pre">Boroughs</span> <span class="pre">of</span> <span class="pre">Toronto</span></code></a>) using <em>folium</em>. To do so,
+I had to integrate the geospatial data from the .csv file.</p>
+<p>After collecting the data I processed them by combining the boroughs from wikipedia, the geospatial data from the .csv file
+and the venue data that I got from the API by making categorial requests. After some data wrangling I reveiced the following dataframe:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/processed_data_head.png"><img alt="_images/processed_data_head.png" src="_images/processed_data_head.png" style="width: 856.8px; height: 92.39999999999999px;" /></a>
+<figcaption>
+<p><span class="caption-text">Processed dataframe (only 4/103 rows displayed)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Each number represents the quantity of venues of one category within a radius of 500 m of the borough center (provided by the coordinates).</p>
+</section>
+<section id="use-k-means-clustering-to-cluster-the-data">
+<h2>3. Use k-Means clustering to cluster the data<a class="headerlink" href="#use-k-means-clustering-to-cluster-the-data" title="Permalink to this headline">¶</a></h2>
+<p>After processing the data, I applied k-Means clustering from <em>sklearn</em>. The algorithm simply needs the processed, a random state and the number of clusters.
+I set the random state to 0 (basically any integer would have done the job) and used the <a class="reference external" href="https://en.wikipedia.org/wiki/Elbow_method_(clustering)">Elbow Technique</a>
+to determine the number of required clusters. The figure below displays the minkowski distortion. It was calculated by this formula:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">distortions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+    <span class="c1"># run k-means clustering</span>
+    <span class="n">kmeanModel</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1"># calculate distance to each cluster_center and sum over distances to closest cluster center</span>
+    <span class="n">distortions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kmeanModel</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">,</span> <span class="s1">&#39;minkowski&#39;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/elbow_technique.png"><img alt="_images/elbow_technique.png" src="_images/elbow_technique.png" style="width: 352.0px; height: 247.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Plotting minkowski distortion over number of clusters</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>I chose 4 as the number of clusters because any larger number of clusters only decreases the distortion by little.</p>
+<p>Now I was able to execute the k-Means algorithm on the data.</p>
+</section>
+<section id="visualizing-the-results">
+<h2>4. Visualizing the results<a class="headerlink" href="#visualizing-the-results" title="Permalink to this headline">¶</a></h2>
+<p>To visualize the results I decided to renew the geospatial visualization while drawing each cluster in a different color.
+The results can be seen <a class="reference download internal" download="" href="_downloads/2dde6e933fcdcfc29e4582733075e8d9/boroughs_clustered.html"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
+In addition I created a piechart for each cluster to display the major categorial components of each cluster.
+I chose one color per category and sticked to it to make a comparism of the different clusters easier.</p>
+<figure class="align-default" id="id3">
+<img alt="_images/piechart_cluster0.png" src="_images/piechart_cluster0.png" />
+<figcaption>
+<p><span class="caption-text">Piechart Cluster 0</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<img alt="_images/piechart_cluster1.png" src="_images/piechart_cluster1.png" />
+<figcaption>
+<p><span class="caption-text">Piechart Cluster 1</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<img alt="_images/piechart_cluster2.png" src="_images/piechart_cluster2.png" />
+<figcaption>
+<p><span class="caption-text">Piechart Cluster 2</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<img alt="_images/piechart_cluster3.png" src="_images/piechart_cluster3.png" />
+<figcaption>
+<p><span class="caption-text">Piechart Cluster 3</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The following table sums up the results:</p>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">Cluster overview</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 28%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cluster</p></th>
+<th class="head"><p>Suitable for:</p></th>
+<th class="head"><p>Comment:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cluster 0</p></td>
+<td><p>Smaller households</p></td>
+<td><p>Close to city center, Multiple Outdoor venues</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cluster 1</p></td>
+<td><p>Larger households</p></td>
+<td><p>People who want to live close to work, good Transport</p></td>
+</tr>
+<tr class="row-even"><td><p>Cluster 2</p></td>
+<td><p>Younger persons</p></td>
+<td><p>In the city center, good Nightlife</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cluster 3</p></td>
+<td><p>Larger households</p></td>
+<td><p>People who want to live close to work, good Outdoor venues</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="conclusion">
+<h2>5. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>If you already live in Toronto you now have the option to take a look on the map of clustered data
+and look for your current neighborhood. After that you can decide wether you want to move to
+a similar neighborhood or you want to avoid this kind of neighborhood.
+If you want to move to Toronto you now can use these results to pick neighborhoods that
+fit your venue needs the most.</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction and business problem description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tobias Höfchen
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
