@@ -1,2 +1,5 @@
 {
+    "restructuredtext.confPath": "${workspaceFolder}",
+    "python.pythonPath": "C:\\Users\\Tobias\\anaconda3\\envs\\env\\python.exe"
+    "restructuredtext.languageServer.disabled": true
 }

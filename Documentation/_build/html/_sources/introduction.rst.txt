@@ -13,8 +13,11 @@ Coursera courses.
 .. figure:: ./_plots/toronto_boroughs.png
     :scale: 40%
 
-    `Boroughs of Toronto <https://upload.wikimedia.org/wikipedia/commons/9/9a/Toronto_map.png>`_
+    `Source <https://en.wikipedia.org/wiki/List_of_neighbourhoods_in_Toronto>`_
 
+
+
+----
 
 
 Business problem
@@ -30,9 +33,15 @@ To answer these problems I will use data provided in the internet and data scien
 to gain knowledge from the data because it will be too large to analyze in a conversative way.
 
 
+----
+
+
 Approach to solve the business problem
 --------------------------------------
-1. Collect the data
-2. Get an insight on the data and process them
-3. Use k-Means clustering to cluster the data
-4. Visualizing the results
+
+Divide main problem into the following smaller problems:
+
+    1. Collect the data
+    2. Get an insight on the data and process them
+    3. Use k-Means clustering to cluster the data
+    4. Visualizing the results

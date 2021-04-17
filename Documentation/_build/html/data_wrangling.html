@@ -155,24 +155,29 @@
             
   <section id="approach-to-solve-the-problem">
 <h1>Approach to solve the problem<a class="headerlink" href="#approach-to-solve-the-problem" title="Permalink to this headline">¶</a></h1>
-<p>As I pinpointed in the Introduction, i want to solve this problem by following these steps:</p>
-<ol class="arabic simple">
+<p>As I pinpointed in the Introduction, i want to solve the business problem by solving
+these smaller problems:</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Collect the data</p></li>
 <li><p>Get an insight on the data and process them</p></li>
 <li><p>Use k-Means clustering to cluster the data</p></li>
 <li><p>Visualizing the results</p></li>
 </ol>
+</div></blockquote>
 <hr class="docutils" />
 <section id="collecting-the-data">
 <h2>1. Collecting the data<a class="headerlink" href="#collecting-the-data" title="Permalink to this headline">¶</a></h2>
 <p>The most important part of every data science project is to get good data.
 To fullfill this requirement, I chose the following data sources:</p>
-<ul class="simple">
+<blockquote>
+<div><ol class="arabic simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M">List of neighborhoods in Toronto</a></p></li>
 <li><p><a class="reference download internal" download="" href="_downloads/e53f8e7719f5365c6e4608e58e93973d/Geospatial_Coordinates.csv"><code class="xref download docutils literal notranslate"><span class="pre">Geospatial</span> <span class="pre">data</span></code></a> (Latitude, Longitude) of every postal code in Toronto</p></li>
 <li><p>Venue data of every neighborhood</p></li>
 <li><p>Venue categories</p></li>
-</ul>
+</ol>
+</div></blockquote>
 <p>In order to get this data I used the Python Package <em>BeautifulSoup</em> to scrape
 the data from the webpages. The venue data is provided by the <a class="reference external" href="https://foursquare.com/">Foursquare</a>
 API. I decided to use the API by using the Python Package <em>requests</em> and search for categories of venues.
@@ -181,8 +186,9 @@ create the API-requests.</p>
 </section>
 <section id="get-an-insight-on-the-data-and-process-them">
 <h2>2. Get an insight on the data and process them<a class="headerlink" href="#get-an-insight-on-the-data-and-process-them" title="Permalink to this headline">¶</a></h2>
-<p>I gained an insight on the data by visualizing them on a geospatial map (<a class="reference download internal" download="" href="_downloads/c84a09d90c106d7149f79132bdacfb24/boroughs.html"><code class="xref download docutils literal notranslate"><span class="pre">Boroughs</span> <span class="pre">of</span> <span class="pre">Toronto</span></code></a>) using <em>folium</em>. To do so,
+<p>I gained an insight on the data by visualizing them on a geospatial map using <em>folium</em>. To do so,
 I had to integrate the geospatial data from the .csv file.</p>
+<iframe width="560" height="315" src=boroughs.html frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" download="" href="_downloads/c84a09d90c106d7149f79132bdacfb24/boroughs.html"><code class="xref download docutils literal notranslate"><span class="pre">Click</span> <span class="pre">here</span></code></a> to see the map in full screen.</p>
 <p>After collecting the data I processed them by combining the boroughs from wikipedia, the geospatial data from the .csv file
 and the venue data that I got from the API by making categorial requests. After some data wrangling I reveiced the following dataframe:</p>
 <figure class="align-default" id="id1">
@@ -219,9 +225,9 @@ to determine the number of required clusters. The figure below displays the mink
 </section>
 <section id="visualizing-the-results">
 <h2>4. Visualizing the results<a class="headerlink" href="#visualizing-the-results" title="Permalink to this headline">¶</a></h2>
-<p>To visualize the results I decided to renew the geospatial visualization while drawing each cluster in a different color.
-The results can be seen <a class="reference download internal" download="" href="_downloads/2dde6e933fcdcfc29e4582733075e8d9/boroughs_clustered.html"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
-In addition I created a piechart for each cluster to display the major categorial components of each cluster.
+<p>To visualize the results I decided to renew the geospatial visualization while drawing each cluster in a different color.</p>
+<iframe width="560" height="315" src=boroughs_clustered.html frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" download="" href="_downloads/2dde6e933fcdcfc29e4582733075e8d9/boroughs_clustered.html"><code class="xref download docutils literal notranslate"><span class="pre">Click</span> <span class="pre">here</span></code></a> to see the map in full screen.</p>
+<p>In addition I created a piechart for each cluster to display the major categorial components of each cluster.
 I chose one color per category and sticked to it to make a comparism of the different clusters easier.</p>
 <figure class="align-default" id="id3">
 <img alt="_images/piechart_cluster0.png" src="_images/piechart_cluster0.png" />

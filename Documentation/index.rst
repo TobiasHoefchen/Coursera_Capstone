@@ -21,5 +21,5 @@ Therefore, you should come up with a problem on your own and solve it by using d
 .. figure:: ./_plots/toronto_skyline.png
     :scale: 40%
     
-    `Toronto <https://www.seetorontonow.com/attractions/torontos-must-see-attractions/>`_
+    `Source <https://www.seetorontonow.com/attractions/torontos-must-see-attractions/>`_
 

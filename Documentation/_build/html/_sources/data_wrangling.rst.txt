@@ -1,12 +1,13 @@
 Approach to solve the problem
 =============================
 
-As I pinpointed in the Introduction, i want to solve this problem by following these steps:
+As I pinpointed in the Introduction, i want to solve the business problem by solving 
+these smaller problems:
 
-1. Collect the data
-2. Get an insight on the data and process them
-3. Use k-Means clustering to cluster the data
-4. Visualizing the results
+  1. Collect the data
+  2. Get an insight on the data and process them
+  3. Use k-Means clustering to cluster the data
+  4. Visualizing the results
    
 
 ------------
@@ -16,10 +17,11 @@ As I pinpointed in the Introduction, i want to solve this problem by following t
 The most important part of every data science project is to get good data.
 To fullfill this requirement, I chose the following data sources:
 
-- `List of neighborhoods in Toronto <https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M>`_
-- :download:`Geospatial data <../Geospatial_Coordinates.csv>` (Latitude, Longitude) of every postal code in Toronto
-- Venue data of every neighborhood
-- Venue categories
+  1. `List of neighborhoods in Toronto <https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M>`_
+  2. :download:`Geospatial data <../Geospatial_Coordinates.csv>` (Latitude, Longitude) of every postal code in Toronto
+  3. Venue data of every neighborhood
+  4. Venue categories
+
 
 In order to get this data I used the Python Package *BeautifulSoup* to scrape
 the data from the webpages. The venue data is provided by the `Foursquare <https://foursquare.com/>`_
@@ -30,8 +32,14 @@ create the API-requests.
 
 2. Get an insight on the data and process them
 ----------------------------------------------
-I gained an insight on the data by visualizing them on a geospatial map (:download:`Boroughs of Toronto <boroughs.html>`) using *folium*. To do so,
+I gained an insight on the data by visualizing them on a geospatial map using *folium*. To do so,
 I had to integrate the geospatial data from the .csv file.
+
+.. raw:: html
+
+  <iframe width="560" height="315" src=boroughs.html frameborder="0" allowfullscreen></iframe>
+
+:download:`Click here <boroughs.html>` to see the map in full screen.
 
 
 After collecting the data I processed them by combining the boroughs from wikipedia, the geospatial data from the .csv file
@@ -77,7 +85,14 @@ Now I was able to execute the k-Means algorithm on the data.
 4. Visualizing the results
 --------------------------
 To visualize the results I decided to renew the geospatial visualization while drawing each cluster in a different color. 
-The results can be seen :download:`here <boroughs_clustered.html>`. 
+
+.. raw:: html
+
+  <iframe width="560" height="315" src=boroughs_clustered.html frameborder="0" allowfullscreen></iframe>
+
+:download:`Click here <boroughs_clustered.html>` to see the map in full screen.
+
+
 In addition I created a piechart for each cluster to display the major categorial components of each cluster. 
 I chose one color per category and sticked to it to make a comparism of the different clusters easier. 
 
